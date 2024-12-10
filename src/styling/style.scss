@@ -1,0 +1,117 @@
+// initilization
+
+$main_duration: 300ms;
+$main_rad: 4px;
+$main-color: #005b53;
+$paragraph_color: #086fc1;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
+}
+.container {
+  padding: 0 3px;
+  margin: 0 3px;
+}
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+input {
+  outline: none;
+}
+
+// start project
+
+#wrapper {
+  background-color: #222;
+  max-width: 1000px;
+  padding: 10px;
+  margin: 60px auto;
+  border-radius: $main_rad;
+  h1 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+    opacity: 0;
+  }
+}
+form {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  input {
+    flex: 0.8;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #ddd;
+    border: 2px solid $main-color;
+  }
+  button {
+    padding: 0 13px;
+    background-color: $main-color;
+    color: #fff;
+    margin: 0 0 0 4px;
+    transition: $main_duration;
+    &:hover {
+      background-color: #00776d;
+    }
+  }
+  @media (max-width: 575px) {
+    & {
+      flex-direction: column;
+      button {
+        margin: 10px 0 0 0;
+        padding: 15px;
+      }
+    }
+  }
+}
+#tasks {
+  margin-top: 30px;
+  #task {
+    background-color: #111;
+    color: $paragraph_color;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    border: 1px solid #424242;
+    p {
+      flex: 1;
+      word-break: break-word;
+      &.done {
+        color: #0c990c;
+        text-decoration: line-through;
+      }
+    }
+    svg {
+      margin-left: 8px;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: $main_duration;
+      &:first-child {
+        color: #ffa500;
+      }
+      &:nth-child(2) {
+        color: #0c990c;
+      }
+      &:last-child {
+        color: #ce1414;
+      }
+      &:hover {
+        opacity: 1;
+      }
+    }
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+}
